@@ -18,13 +18,14 @@ class Threefold {
 			$this->ext = $opt_ext;
 		}
 		//Are we working with a subfolder? If so, $sub is the folder name and $page the name of the page.
+		$pageName = $page;
 		if(isset($sub)) {
 			$page = $sub."/".$page;
 		}
 		
 		/*
 		Set custom titles and descriptions based on a JSON-file or revert to default.
-		@since 1.1.0
+		@since 1.1.1
 		*/
 		if(file_exists($jsonPath=ABSPATH.PAGES_FOLDER.$page.'.json')) {
 			$customMetaData = json_decode(file_get_contents($jsonPath));
@@ -32,19 +33,19 @@ class Threefold {
 			$this->description = $customMetaData->description;
 		}else{
 			if ( CAPITALS_PREF === 'all' ) {
-				$this->title = strtoupper(str_replace('_', ' ', $page));
+				$this->title = strtoupper(str_replace('_', ' ', $pageName));
 			}else if ( CAPITALS_PREF === 'first' ) {
-				$this->title = ucfirst(str_replace('_', ' ', $page));
+				$this->title = ucfirst(str_replace('_', ' ', $pageName));
 			}else {
-				$this->title = ucwords(str_replace('_', ' ', $page));
+				$this->title = ucwords(str_replace('_', ' ', $pageName));
 			}
 		}
 
 		/*
 		Set the slug to be the filename of the page. Can be used in templates for per-page styles.
-		@since 1.1.0
+		@since 1.1.1
 		*/
-		$this->slug = $page;
+		$this->slug = $pageName;
 
 		/* 
 		Begin rendering the page, starting with the header
