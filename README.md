@@ -1,13 +1,13 @@
-# THREEFOLD v1.0
+# THREEFOLD v1.1
 ## Yet another fucking template system
 
 Threefold is an extremely simple template system that uses a very basic header-body-footer construction. Want to build a small website without spending three hours learning the syntax and/or construction of the CMS or whatever the fuck it is you’re using? Give this a try.
 
-Header and footer files, as well as a standard 404-page are located in <code>assets/template/</code>. The individual pages should go in <code>pages/</code>.
+Header and footer files, as well as a standard 404-page are located in assets/template/. The individual pages should go in pages/.
 
-Threefold supports one level of subfolders in the <code>pages/</code> folder. If you choose not to configure mod_rewrite for Threefold, top-level pages can be accessed using <code>sitename.com/?p=pagename</code> and pages inside a subfolder can be accessed using <code>sitename.com/?s=subfoldername&p=pagename</code>. There's an example included, though, so you can use nicer URLs. In fact, you should.
+Threefold supports one level of subfolders in the pages/ folder. If you choose not to configure mod_rewrite for Threefold, top-level pages can be accessed using sitename.com/?p=pagename and pages inside a subfolder can be accessed using sitename.com/?s=subfoldername&p=pagename. There's an example included, though, so you can use nicer URLs. In fact, you should.
 
-<code>&lt;title&gt;</code> tags are generated based on the filename, so <code>"nice_page.phtml"</code> gives you <code>"Nice page"</code>, <code>"Nice Page"</code> or <code>"NICE PAGE"</code>, depending on your preference in <code>config.php</code>. If you want to have custom title and description tags because, you know, Google, then put a JSON file with the same filename in <code>pages/</code>. (See the included example.)
+Title tags are generated based on the filename, so "nice_page.phtml" gives you "Nice page", "Nice Page" or "NICE PAGE", depending on your preference in config.php. If you want to have custom title and description tags because, you know, Google, then put a JSON file with the same filename in pages/. (See the included example.)
 
 Bootstrap and jQuery are included in the standard configuration, but obviously you can remove them if you prefer.
 
