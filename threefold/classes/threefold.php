@@ -21,38 +21,64 @@ class Threefold {
 		if(isset($sub)) {
 			$page = $sub."/".$page;
 		}
+		
+		/*
+		Set custom titles and descriptions based on a JSON-file or revert to default.
+		@since 1.1.0
+		*/
+		if(file_exists($jsonPath=ABSPATH.PAGES_FOLDER.$page.'.json')) {
+			$customMetaData = json_decode(file_get_contents($jsonPath));
+			$this->title = $customMetaData->title;
+			$this->description = $customMetaData->description;
+		}else{
+			if ( CAPITALS_PREF === 'all' ) {
+				$this->title = strtoupper(str_replace('_', ' ', $page));
+			}else if ( CAPITALS_PREF === 'first' ) {
+				$this->title = ucfirst(str_replace('_', ' ', $page));
+			}else {
+				$this->title = ucwords(str_replace('_', ' ', $page));
+			}
+		}
 
+		/*
+		Set the slug to be the filename of the page. Can be used in templates for per-page styles.
+		@since 1.1.0
+		*/
+		$this->slug = $page;
+
+		/* 
+		Begin rendering the page, starting with the header
+		@since 1.1.0
+		*/
+		$this->renderTemplatePart('head');
 		//Does the page exist? If so, include it. Otherwise, include the 404 page from the theme.
 		if(file_exists($pagePath=ABSPATH.PAGES_FOLDER.$page.'.'.$this->ext)) {
-			$this->loadHeader();
 			include ($pagePath);
 		}else{
 			$this->title = "404 - File Not Found";
-			$this->loadHeader();
-			//Does the theme have a 404 page? It should have one.
-			if(file_exists($noPath=ABSPATH.THEME_FOLDER.'404.phtml')) {
-				include ($noPath);
-			}else{
-				throw new Exception ("Warning: no template file found for 404 pages at ".$noPath."!");		
-			}	
+			$this->renderTemplatePart('404');			
 		}
-		//Does the theme have a footer?
-		if(file_exists($footerPath=ABSPATH.THEME_FOLDER.'foot.phtml')) {
-			include ($footerPath);
-		}else{
-			throw new Exception ("Warning: no template file found for the footer at ".$footerPath."!");		
-		}
+		//Load footer
+		$this->renderTemplatePart('foot');
 	}
 
-	public function loadHeader() {
-		//Does the theme have a header?
-		if(file_exists($headerPath=ABSPATH.THEME_FOLDER.'head.phtml')) {
-			include ($headerPath);
+	/*
+	Loading specific parts of the template
+	@since 1.1.0
+	*/
+	public function renderTemplatePart($part) {
+		//Does the part exist?
+		if(file_exists($pathToFileToLoad=ABSPATH.THEME_FOLDER.$part.'.'.$this->ext)) {
+			include ($pathToFileToLoad);
 		}else{
-			throw new Exception ("Warning: no template file found for the header at ".$headerPath."!");	
+			throw new Exception ("Warning: no template file found for template part '".$part."' at ".$pathToFileToLoad."!");	
 		}
 	}
-	//These are used for storing or retrieving metadata of the page, such as the title.
+	
+	/*
+	Get and set functions for storing and retrieving metadata of the page.
+	@since 1.0.0
+	*/
 	public function __set($name, $value) {
         $this->vars[$name] = $value;
     }

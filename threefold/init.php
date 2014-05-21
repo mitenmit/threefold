@@ -17,16 +17,7 @@ $sub = $_REQUEST['s'];
 
 //Default page is home.phtml
 if(!isset($page) || empty($page)) {
-	$page = "home";
-}
-
-//Set the title to the name of the page
-if ( CAPITALS_PREF === "all" ) {
-	$threefold->title = strtoupper(str_replace('_', ' ', $page));
-}else if ( CAPITALS_PREF === "first" ) {
-	$threefold->title = ucfirst(str_replace('_', ' ', $page));
-}else {
-	$threefold->title = ucwords(str_replace('_', ' ', $page));
+	$page = 'home';
 }
 
 //Render the page

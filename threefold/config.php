@@ -11,11 +11,17 @@ The default title to show up in the <title> tag.
 define ( STANDARD_TITLE , 	"Threefold" );
 
 /*
+[AUTHOR]
+Who is providing the content? Google wants to know.
+*/
+define ( CONTENT_AUTHOR	,	"Accommodavid" );
+
+/*
 [CAPITALS]
 How Do You Like Your Titles? Perhaps just capitalize the first word? HOW ABOUT ALL CAPS?
 Choose "words", "first" or "all".
 */
-define ( CAPITALS_PREF , 	"words" );
+define ( CAPITALS_PREF  , 	"words" );
 
 /*
 [FOLDERS]
