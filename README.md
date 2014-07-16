@@ -28,7 +28,7 @@ Sure, if you want to.
 
 If you want to use custom title tags and descriptions, put a JSON file with the same name as your page in pages/.
 
-You can use page-specific classes or elements by making use of <code><?=$this->slug?></code>. This prints the name of the current page in script-friendly format.
+You can use page-specific classes or elements by making use of <code><?=$this->slug?></code>. This prints the name of the current page in script-friendly format. There are other shortcodes, like <code><?=$this->title?></code>, which prints the current page title and <code><?=SITE_URL?></code> which prints the absolute URL of your website.
 
 There's also a small script included that highlights the current page in the navigation menu.
 
