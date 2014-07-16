@@ -3,14 +3,14 @@
 
 OK, so you know how a CMS or even a template system like Savant is complete overkill if you just want to build a small, say 7-page, website? I mean, all you really want to have is separate header and footer files so you don’t keep repeating yourself with loading stylesheets, scripts, navigation and what not. You don’t want to spend three hours configuring the framework, because, dude, come on.
 
-So this is Threefold. Put a header, footer and 404-page in assets/template/. Then put the content of the pages in pages/. Threefold stitches them together for you. Done.
+So this is Threefold. Put a header, footer and 404-page in template/. Then put the content of the pages in pages/. Threefold stitches them together for you. Done.
 
 Sure, it works with a index.php?p=pagename structure, but there’s an .htaccess example included so you can have normal, pretty URLs. You can even use one level of subfolders in the pages/ folder if you want to have groups of pages.
 
 ### CONFIGURATION
 
 1. Review the settings in threefold/config.php.
-2. Create the .htaccess file. An example can be found in misc/htaccess-example.txt.
+2. Create the .htaccess file. An example can be found in htaccess-example.txt.
 3. Start building!
 
 ### OTHER OPTIONS

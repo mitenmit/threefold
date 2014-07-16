@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="<?=CONTENT_AUTHOR?>"/> 
+    <meta name="description" content="<?=$this->description?>" />
+    <link rel="shortcut icon" href="<?=SITE_URL?>assets/ico/favicon.ico">
+
+    <title><?=$this->title?> :: <?=STANDARD_TITLE?></title>
+
+   	<link href="<?=SITE_URL?>css/style.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="menu">
+      <div class="container">
+        <h1 class="site-title" onclick="window.location.href='<?=SITE_URL?>'">Threefold</h1>
+        <ul class="menu-items">
+          <li><a id="home-nav" href="<?=SITE_URL?>">Home</a></li>
+          <li><a id="my_beautiful_page-nav" href="<?=SITE_URL?>my_beautiful_page">A page</a></li>
+        </ul>
+        <script>
+          /*
+          Simple script to display which page 
+          we're currently on.
+
+          Usage:
+          Give each menu item the id #name_of_page-nav.
+          You can then add a definition for .current-page
+          in your CSS.
+
+          Example: a page named watermelon.phtml should
+          have a corresponding menu item with the id
+          #watermelon-nav.
+          */
+          var currentItem = document.getElementById("<?=$this->slug?>-nav");
+          currentItem.className += " current-page";
+          </script>
+      </div>
+    </div>

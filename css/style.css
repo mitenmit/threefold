@@ -1,0 +1,94 @@
+/* Basic elements */
+
+body{
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 1.5em;
+  font-weight: 300;
+  color: #444;
+
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+
+  margin: 0;
+}
+
+a {
+  color: #777;
+  text-decoration: none;
+  border-bottom: 3px solid #daa;
+}
+
+li {
+  line-height: 2em;
+}
+
+/* Navigation */
+
+.menu-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-items li {
+  float: left;
+  padding: 0 2em 0 0;
+  font-size: 0.8em;
+}
+
+.menu-items li a{
+  text-transform: uppercase;
+  border-bottom: 0;
+}
+
+.menu-items .current-page {
+  border-bottom: 2px solid #444;
+}
+
+/* General purpose */
+
+.container {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.foot-divider {
+  width: 3em;
+  height: 1px;
+  background: #bbb;
+  display: block;
+  margin: 0.5em 0;
+}
+
+.lead {
+  font-size: 1.2em;
+}
+
+/* Menu and footer */
+
+#menu {
+  width: 100vw;
+  height: 5em;
+  background: #111;
+  color: #eee;
+  margin-bottom: 2em;
+  padding: 2em 0 0;
+}
+
+#footer {
+  font-size: 0.7em;
+  color: #bbb;
+  padding: 2em 0;
+}
+
+
+/* Clearfix */
+.clearfix {
+  clear: both;
+}
