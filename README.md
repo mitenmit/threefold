@@ -18,7 +18,7 @@ Done.
 
 1. Download and extract a zip-file to your server
 2. Rename htaccess-example.txt to .htaccess
-3. Check config/config.php to see if everything's OK
+3. Check threefold/config.php to see if everything's OK
 4. That's it. Start building!
 
 
@@ -28,7 +28,7 @@ Sure, if you want to.
 
 If you want to use custom title tags and descriptions, put a JSON file with the same name as your page in pages/.
 
-You can use page-specific classes or elements by making use of <code><?=$this->slug?></code>. This prints the name of the current page in script-friendly format. There are other shortcodes, like <code><?=$this->title?></code>, which prints the current page title and <code><?=SITE_URL?></code> which prints the absolute URL of your website.
+You can use page-specific classes or elements by making use of <code><?=$this->slug?></code>. This prints the name of the current page in a script-friendly format. There are other shortcodes, like <code><?=$this->title?></code>, which prints the current page title and <code><?=SITE_URL?></code> which prints the absolute URL of your website.
 
 There's also a small script included that highlights the current page in the navigation menu.
 
