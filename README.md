@@ -2,8 +2,9 @@
 ## Actually simple templating
 
 OK, so you know how much of a pain it is to simply build a small, say, 7-page website?
-A CMS or templating system like Wordpress or Savant seems like overkill and manually 
-coding each page is way too much work. You just want something that does this:
+A CMS or templating system like Wordpress or Savant seems like overkill, manually 
+coding each page is way too much work and using regular PHP includes means title tags
+are going to be a nightmare. You just want something that does this:
 
 <img src="http://i0.watermel.uno/threefold/threefold-explanation.png">
 
@@ -13,6 +14,12 @@ Put a header, footer and 404-page in template/.
 Then put the content of the pages in pages/.
 Threefold stitches them together for you.
 Done.
+
+## Nice things about Threefold
+
+* Pretty title tags are automatically generated based on the filename. (My_page.phtml gives you My Page)
+* Non-existing URLs bring up a 404 page.
+* You can use page-specific classes and stuff with a simple shortcode.
 
 ## How do I install it?
 
