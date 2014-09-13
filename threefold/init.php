@@ -14,6 +14,7 @@ $threefold = new Threefold;
 //Retrieve current request
 $page = $_REQUEST['p'];
 $sub = $_REQUEST['s'];
+$ext = $_REQUEST['e'];
 
 //Default page is home.phtml
 if(!isset($page) || empty($page)) {
@@ -22,7 +23,7 @@ if(!isset($page) || empty($page)) {
 
 //Render the page
 try {
-	$threefold->load($page,$sub);
+	$threefold->load($page,$sub,$ext);
 } catch (Exception $e) {
 	echo $e->getMessage(), "\n";
 }
