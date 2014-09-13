@@ -13,8 +13,8 @@ class Threefold {
 
 	//Rendering function
 	public function load($page, $sub=NULL, $opt_ext=NULL) {
-		//If you wanted to, you could tweak init.php to load pages with other file extensions than .phtml.
-		if(isset($opt_ext)) {
+		//Maybe we don't want to load a phtml file this time.
+		if(isset($opt_ext) && !empty($opt_ext)) {
 			$this->ext = $opt_ext;
 		}
 		//Are we working with a subfolder? If so, $sub is the folder name and $page the name of the page.
@@ -29,15 +29,21 @@ class Threefold {
 		*/
 		if(file_exists($jsonPath=ABSPATH.PAGES_FOLDER.$page.'.json')) {
 			$customMetaData = json_decode(file_get_contents($jsonPath));
-			$this->title = $customMetaData->title;
-			$this->description = $customMetaData->description;
+			define (PAGE_TITLE,		$customMetaData->title);
+			define (PAGE_DESCRIPTION, $customMetaData->description);
 		}else{
-			if ( CAPITALS_PREF === 'all' ) {
-				$this->title = strtoupper(str_replace('_', ' ', $pageName));
-			}else if ( CAPITALS_PREF === 'first' ) {
-				$this->title = ucfirst(str_replace('_', ' ', $pageName));
-			}else {
-				$this->title = ucwords(str_replace('_', ' ', $pageName));
+			//Set title based on filename and preference in config file
+			if (CAPITALS_PREF === 'all') {
+				//Use all caps.
+				define (PAGE_TITLE,	strtoupper(str_replace('_', ' ', $pageName)));
+
+			}else if (CAPITALS_PREF === 'first') {
+				//Only capitalise the first word.
+				define (PAGE_TITLE,	ucfirst(str_replace('_', ' ', $pageName)));
+
+			}else{
+				//Capitalise all words.
+				define (PAGE_TITLE,	ucwords(str_replace('_', ' ', $pageName)));
 			}
 		}
 
@@ -45,7 +51,7 @@ class Threefold {
 		Set the slug to be the filename of the page. Can be used in templates for per-page styles.
 		@since 1.1.1
 		*/
-		$this->slug = $pageName;
+		define (PAGE_SLUG,	$pageName);
 
 		/* 
 		Begin rendering the page, starting with the header
@@ -56,7 +62,7 @@ class Threefold {
 		if(file_exists($pagePath=ABSPATH.PAGES_FOLDER.$page.'.'.$this->ext)) {
 			include ($pagePath);
 		}else{
-			$this->title = "404 - File Not Found";
+			define (PAGE_TITLE, "404 - File Not Found");
 			$this->renderTemplatePart('404');			
 		}
 		//Load footer

@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="<?=CONTENT_AUTHOR?>"/> 
-    <meta name="description" content="<?=$this->description?>" />
+    <meta name="description" content="<?=PAGE_DESCRIPTION?>" />
     <link rel="shortcut icon" href="<?=SITE_URL?>assets/ico/favicon.ico">
 
-    <title><?=$this->title?> :: <?=STANDARD_TITLE?></title>
+    <title><?=PAGE_TITLE?> :: <?=STANDARD_TITLE?></title>
 
    	<link href="<?=SITE_URL?>css/style.css" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -38,7 +38,7 @@
           have a corresponding menu item with the id
           #watermelon-nav.
           */
-          var currentItem = document.getElementById("<?=$this->slug?>-nav");
+          var currentItem = document.getElementById("<?=PAGE_SLUG?>-nav");
           currentItem.className += " current-page";
           </script>
       </div>
