@@ -1,6 +1,6 @@
 # Threefold
 ### Actually simple templating
-OK, so you know how much of a pain it is to just build a small, say 7-page, website? A CMS seems like overkill but simple PHP includes means page-specific title tags or highlighting the current page in the navbar is going to be a nightmare.
+OK, so you know how much of a pain it is to just build a small, say 7-page, website? A CMS seems like overkill but simple PHP includes means page-specific title tags or things like highlighting the current page in the navbar are going to be a nightmare.
 
 Really, all you want is something that does this:
 
@@ -10,14 +10,14 @@ example.com/my-beautiful-page
 |___ head.phtml
 |	 <title>My Beautiful Page</title>
 |
-|___ my-beautiful-page.html
+|___ my-beautiful-page.phtml
 |
 |___ foot.phtml
 ```
 
 Well, surprise. That's exactly what Threefold does. Put a header and footer in _template/_. Then put the content of your pages in _pages/_. Threefold automatically stitches them together for you. Done.
 
-Want to put the current title in the header? Just use `<?=PAGE_TITLE?>`. Working on a script that needs to use page-specific classes? Use `<?=PAGE_SLUG?>` for the current filename.
+Want to put the current page title in the header? Just use `<?=PAGE_TITLE?>`. Working on a script that needs to use page-specific classes? Use `<?=PAGE_SLUG?>` for the current filename.
 
 But what about page descriptions? You know Google likes those. Well, even that's pretty easy now: use `<?=PAGE_DESCRIPTION?>` in the header. Then put a JSON file in pages/ with the same name as your page, containing `{ "description" : "Some description" }`. This even works for title tags as well.
 
