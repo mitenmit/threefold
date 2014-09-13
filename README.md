@@ -1,42 +1,31 @@
-# THREEFOLD
+# Threefold
 ## Actually simple templating
 
-OK, so you know how much of a pain it is to simply build a small, say, 7-page website?
-A CMS or templating system like Wordpress or Savant seems like overkill, manually 
-coding each page is way too much work and using regular PHP includes means title tags
-are going to be a nightmare. You just want something that does this:
+OK, so you know how much of a pain it is to just build a small, say 7-page, website? A CMS seems like overkill but simple PHP includes means page-specific title tags or highlighting the current page in the navbar is going to be a nightmare.
 
-<img src="http://i0.watermel.uno/threefold/threefold-explanation.png">
+Really, all you want is something that does this:
 
-That's what Threefold does.
+```html
+example.com/my-beautiful-page
+|
+|___ head.phtml
+|	 <title>My Beautiful Page</title>
+|
+|___ my-beautiful-page.html
+|
+|___ foot.phtml
+```
 
-Put a header, footer and 404-page in template/.
-Then put the content of the pages in pages/.
-Threefold stitches them together for you.
-Done.
+Well, surprise. That's exactly what Threefold does. Put a header and footer in _template/_. Then put the content of your pages in _pages/_. Threefold automatically stitches them together for you. Done.
 
-## Nice things about Threefold
+Want to put the current title in the header? Just use <code><?=PAGE_TITLE?></code>. Working on a script that needs to use page-specific classes? Use <code><?=PAGE_SLUG?> for the current filename.
 
-* Pretty title tags are automatically generated based on the filename. (My_page.phtml gives you My Page)
-* Non-existing URLs bring up a 404 page.
-* You can use page-specific classes and stuff with a simple shortcode.
+But what about page descriptions? You know Google likes those. Well, even that's pretty easy now: use <code><?=PAGE_DESCRIPTION?></code> in the header. Then put a JSON file in pages/ with the same name as your page, containing <code>{ "description" : "Some description" }</code>. This even works for title tags as well.
 
-## How do I install it?
+There are tons of other options, such as using a global SITE_URL for absolute URLs, a built-in 404 page and more. Just check out the included examples.
 
-1. Download and extract a zip-file to your server
-2. Rename htaccess-example.txt to .htaccess
-3. Check threefold/config.php to see if everything's OK
-4. That's it. Start building!
-
-
-## Are there any other options or things to customize?
-
-Sure, if you want to.
-
-If you want to use custom title tags and descriptions, put a JSON file with the same name as your page in pages/.
-
-You can use page-specific classes or elements by making use of <code><?=$this->slug?></code>. This prints the name of the current page in a script-friendly format. There are other shortcodes, like <code><?=$this->title?></code>, which prints the current page title and <code><?=SITE_URL?></code> which prints the absolute URL of your website.
-
-There's also a small script included that highlights the current page in the navigation menu.
-
-See the included examples and their source code to get a better idea of how you can customize Threefold to your liking. Or, if you want to extend even further, check out the core PHP code. It's pretty straightforward and can easily be tweaked or built upon.
+### How do I install it?
+1. Download and unzip the latest release.
+2. Rename htaccess-example.txt to .htaccess.
+3. Edit threefold/config.php (Takes about 20 seconds.)
+4. That's it! Done!
