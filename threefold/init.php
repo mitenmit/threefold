@@ -1,4 +1,4 @@
-<?
+<?php
 /*
 INIT
 Loads the Threefold class and renders the requested page.
@@ -6,10 +6,9 @@ Loads the Threefold class and renders the requested page.
 @package Threefold
 @since 1.0.0
 */
-
-//Create Threefold object
-require_once 'classes/threefold.php';
-$threefold = new Threefold;
+namespace Threefold;
+require_once 'lib/TemplateException.php';
+require_once 'lib/Threefold.php';
 
 //Retrieve current request
 $page = $_REQUEST['p'];
@@ -23,7 +22,9 @@ if(!isset($page) || empty($page)) {
 
 //Render the page
 try {
-	$threefold->load($page,$sub,$ext);
-} catch (Exception $e) {
-	echo $e->getMessage(), "\n";
+	Threefold::load($page,$sub,$ext);
+} catch (TemplateException $e) {
+	print "TemplateException: {$e->getMessage()}\n";
+} catch (\Exception $e) {
+	print "Exception: {$e->getMessage}\n";
 }

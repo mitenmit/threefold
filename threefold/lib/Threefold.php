@@ -1,4 +1,4 @@
-<?
+<?php
 /*
 THREEFOLD
 Renders the page based on a simple header-body-footer construction.
@@ -6,17 +6,13 @@ Renders the page based on a simple header-body-footer construction.
 @package Threefold
 @since 1.0.0
 */
+namespace Threefold;
 
 class Threefold {
-	private $vars = array();
-	private $ext = "phtml";
-
 	//Rendering function
-	public function load($page, $sub=NULL, $opt_ext=NULL) {
+	public static function load($page, $sub=NULL, $opt_ext=NULL) {
 		//Maybe we don't want to load a phtml file this time.
-		if(isset($opt_ext) && !empty($opt_ext)) {
-			$this->ext = $opt_ext;
-		}
+		$ext = (isset($opt_ext) && !empty($opt_ext)) ? $opt_ext : "phtml";
 		//Are we working with a subfolder? If so, $sub is the folder name and $page the name of the page.
 		$pageName = $page;
 		if(isset($sub)) {
@@ -57,28 +53,28 @@ class Threefold {
 		Begin rendering the page, starting with the header
 		@since 1.1.0
 		*/
-		$this->renderTemplatePart('head');
+		static::renderTemplatePart('head');
 		//Does the page exist? If so, include it. Otherwise, include the 404 page from the theme.
-		if(file_exists($pagePath=ABSPATH.PAGES_FOLDER.$page.'.'.$this->ext)) {
+		if(file_exists($pagePath=ABSPATH.PAGES_FOLDER.$page.'.'.static::$ext)) {
 			include ($pagePath);
 		}else{
 			define (PAGE_TITLE, "404 - File Not Found");
-			$this->renderTemplatePart('404');			
+			static::renderTemplatePart('404');			
 		}
 		//Load footer
-		$this->renderTemplatePart('foot');
+		static::renderTemplatePart('foot');
 	}
 
 	/*
 	Loading specific parts of the template
 	@since 1.1.0
 	*/
-	public function renderTemplatePart($part) {
+	private function renderTemplatePart($part) {
 		//Does the part exist?
-		if(file_exists($pathToFileToLoad=ABSPATH.THEME_FOLDER.$part.'.'.$this->ext)) {
+		if(file_exists($pathToFileToLoad=ABSPATH.THEME_FOLDER.$part.'.'.$ext)) {
 			include ($pathToFileToLoad);
 		}else{
-			throw new Exception ("Warning: no template file found for template part '".$part."' at ".$pathToFileToLoad."!");	
+			throw new TemplateException ("Warning: no template file found for template part '".$part."' at ".$pathToFileToLoad."!");	
 		}
 	}
 	
@@ -87,9 +83,9 @@ class Threefold {
 	@since 1.0.0
 	*/
 	public function __set($name, $value) {
-        $this->vars[$name] = $value;
+        static::$vars[$name] = $value;
     }
     public function __get($name) {
-        return $this->vars[$name];
+        return static::$vars[$name];
     }
 }

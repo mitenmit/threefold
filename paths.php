@@ -1,11 +1,11 @@
-<?
+<?php
 /*
 PATHS
 Finds absolute local and remote paths to load resources correctly.
 
-@package Threefold
 @since 1.0.0
 */
+namespace Threefold;
 
 //Define the absolute local path
 define( 'ABSPATH', dirname(__FILE__) . '/' );
