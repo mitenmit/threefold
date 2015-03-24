@@ -1,0 +1,25 @@
+# OS or Editor folders
+._*
+.cache
+.DS_STORE
+.project
+.settings
+*.esproj
+*.sublime-project
+*.sublime-workspace
+Thumbs.db
+
+# Standard ignore
+*.diff
+*.err
+*.log
+*.orig
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+
+# Testing purposes
+.htaccess
+threefold/config.php

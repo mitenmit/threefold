@@ -24,7 +24,12 @@ But what about page descriptions? You know Google likes those. Well, even that's
 There are tons of other options, such as using a global SITE_URL for absolute URLs, a built-in 404 page and more. Just check out the included examples.
 
 ### How do I install it?
+Threefold can be installed in three minutes.
+
 1. Download and unzip the latest release.
 2. Rename htaccess-example.txt to .htaccess.
-3. Edit threefold/config.php (Takes about 20 seconds.)
+3. Edit threefold/config-example.php and rename to config.php.
 4. That's it! Done!
+
+### Do I need anything special to run Threefold?
+If your server supports PHP5.4 and mod_rewrite, no. For earlier PHP versions, you have to enable `short_open_tags`.

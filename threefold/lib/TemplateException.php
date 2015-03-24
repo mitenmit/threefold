@@ -1,4 +1,4 @@
 <?php
-namespace Threefold
+namespace Threefold;
 
 class TemplateException extends \Exception {}

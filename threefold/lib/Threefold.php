@@ -53,23 +53,22 @@ class Threefold {
 		Begin rendering the page, starting with the header
 		@since 1.1.0
 		*/
-		static::renderTemplatePart('head');
+		static::renderTemplatePart('head', $ext);
 		//Does the page exist? If so, include it. Otherwise, include the 404 page from the theme.
-		if(file_exists($pagePath=ABSPATH.PAGES_FOLDER.$page.'.'.static::$ext)) {
+		if(file_exists($pagePath=ABSPATH.PAGES_FOLDER.$page.'.'.$ext)) {
 			include ($pagePath);
 		}else{
-			define (PAGE_TITLE, "404 - File Not Found");
-			static::renderTemplatePart('404');			
+			static::renderTemplatePart('404', $ext);			
 		}
 		//Load footer
-		static::renderTemplatePart('foot');
+		static::renderTemplatePart('foot', $ext);
 	}
 
 	/*
 	Loading specific parts of the template
 	@since 1.1.0
 	*/
-	private function renderTemplatePart($part) {
+	private function renderTemplatePart($part, $ext) {
 		//Does the part exist?
 		if(file_exists($pathToFileToLoad=ABSPATH.THEME_FOLDER.$part.'.'.$ext)) {
 			include ($pathToFileToLoad);
