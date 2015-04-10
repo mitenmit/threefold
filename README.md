@@ -1,4 +1,4 @@
-# Threefold
+# Threefold [![Build Status](https://travis-ci.org/Accommodavid/Threefold.svg?branch=master)](https://travis-ci.org/Accommodavid/Threefold)
 ### Actually simple templating
 OK, so you know how much of a pain it is to just build a small, say 7-page, website? A CMS seems like overkill but simple PHP includes means page-specific title tags or things like highlighting the current page in the navbar are going to be a nightmare.
 
