@@ -1,0 +1,1 @@
+web: cp config-example.php config.php && vendor/bin/heroku-php-apache2 public
