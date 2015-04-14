@@ -4,6 +4,7 @@
 .DS_STORE
 .project
 .settings
+.jshintrc
 *.esproj
 *.sublime-project
 *.sublime-workspace
