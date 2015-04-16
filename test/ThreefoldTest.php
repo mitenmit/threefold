@@ -1,8 +1,8 @@
 <?php
-require_once '../paths.php';
-require_once '../threefold/config.php';
-require_once '../threefold/lib/TemplateException.php';
-require_once '../threefold/lib/Threefold.php';
+require_once dirname(__FILE__).'../paths.php';
+require_once dirname(__FILE__).'../threefold/config.php';
+require_once dirname(__FILE__).'../threefold/lib/TemplateException.php';
+require_once dirname(__FILE__).'../threefold/lib/Threefold.php';
 
 class ThreefoldTest extends PHPUnit_Framework_TestCase {
 	public function testRenderTemplatePart() {
