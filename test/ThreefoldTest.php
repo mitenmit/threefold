@@ -1,6 +1,6 @@
 <?php
-require_once dirname(__FILE__).'/../paths.php';
 require_once dirname(__FILE__).'/../threefold/config.php';
+require_once dirname(__FILE__).'/../paths.php';
 require_once dirname(__FILE__).'/../threefold/lib/TemplateException.php';
 require_once dirname(__FILE__).'/../threefold/lib/Threefold.php';
 
