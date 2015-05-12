@@ -21,6 +21,6 @@ Thumbs.db
 *.vi
 *~
 
-# Testing purposes
+# Config purposes
 .htaccess
 threefold/config.php

@@ -1,1 +1,0 @@
-web: cp htaccess-example.txt .htaccess && vendor/bin/heroku-php-apache2 public
