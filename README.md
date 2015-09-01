@@ -1,5 +1,6 @@
 # Threefold [![Build Status](https://travis-ci.org/Accommodavid/Threefold.svg?branch=master)](https://travis-ci.org/Accommodavid/Threefold)
 ## The most barebones theme engine in the universe
+![Threefold](https://cloud.githubusercontent.com/assets/6472410/9600040/e6b56a4c-5098-11e5-9042-f82829b792ea.png)
 So you know how stupidly complicated it is to build really small websites, right? You just want to build something simple without a lot of maintenance, no databases involved, you can write the content yourself. A complete CMS is way overkill. But reverting to plain HTML pages means repeating a lot of code and making a big mess. Threefold solves this problem.
 
 Threefold is the most barebones theme engine in the world. Put a header and footer in _template/_. Then put the content of your pages in _pages/_. Threefold stitches them together for you. Done.
