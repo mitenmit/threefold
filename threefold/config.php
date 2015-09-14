@@ -31,6 +31,6 @@ If you did not put Threefold in the public_html folder, or whatever root folder 
 want to load a different theme or locate your content elsewhere, change these values.
 Remember the slash after the folder name.
 */
-define ( ROOT_FOLDER	,	"~David/Threefold/" );
+define ( ROOT_FOLDER	,	"" );
 define ( THEME_FOLDER	, 	"template/" );
 define ( PAGES_FOLDER	, 	"pages/" );
