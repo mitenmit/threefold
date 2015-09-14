@@ -20,7 +20,8 @@ Thumbs.db
 *.swp
 *.vi
 *~
-vendor/
+vendor/**
+!vendor/accommodavid/threefold/**
 
 # Config purposes
 .htaccess
