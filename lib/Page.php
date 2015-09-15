@@ -10,32 +10,11 @@ namespace Threefold;
 class Page
 {
     /**
-     * The parseable name of the Page
+     * The metadata of the Page
      *
-     * @var string
+     * @var array
      */
-    public $slug = null;
-
-    /**
-     * The title of the Page
-     *
-     * @var string
-     */
-    public $title = null;
-
-    /**
-     * The standard title as defined in the config
-     *
-     * @var string
-     */
-    public $standardTitle = null;
-
-    /**
-     * The description of the Page
-     *
-     * @var string
-     */
-    public $description = null;
+    private $metadata;
 
     /**
      * Constructor
@@ -44,16 +23,16 @@ class Page
      * @param Request $request
      * @return Page
      */
-    public function __construct(Request $request)
+    public function __construct(Request $request, Array $configuration)
     {
-        $this->slug = $request->pageName;
+        $this->metadata["slug"] = $request->pageName;
+        $this->metadata["tree"] = $request->tree;
+        $this->metadata = array_merge($this->metadata, $configuration);
 
         if (file_exists($jsonPath = ROOT . DS . PAGES . DS . $request->tree . DS . $this->slug . ".json")) {
-            $customMetaData = json_decode(file_get_contents($jsonPath));
-            $this->title = $customMetaData->title;
-            $this->description = $customMetaData->description;
+            $this->metadata = array_merge($this->metadata, json_decode(file_get_contents($jsonPath)));
         } else {
-            switch ($configuration["preferences"]["capitalsPreference"]) {
+            switch ($configuration["capitalsPreference"]) {
                 case 'words':
                     $this->title = ucwords(str_replace("_", " ", $this->slug));
                     break;
@@ -65,7 +44,44 @@ class Page
                     break;
             }
         }
-        $this->standardTitle = $configuration["preferences"]["title"];
-        $this->author = $configuration["preferences"]["author"];
+    }
+
+    /**
+     * getMetadata
+     * Returns all metadata
+     *
+     * @return array
+     */
+    public function getMetadata()
+    {
+        return $this->metadata;
+    }
+
+    /**
+     * Magic get function
+     * Pulls metadata from array
+     *
+     * @param string $name
+     * @return string
+     */
+    public function __get($name)
+    {
+        if (isset($this->metadata[$name])) {
+            return $this->metadata[$name];
+        }
+        return '';
+    }
+
+    /**
+     * Magic set function
+     * Stores metadata in array
+     *
+     * @param string $name, string $value
+     * @return bool
+     */
+    public function __set($name, $value)
+    {
+        $this->metadata[$name] = $value;
+        return true;
     }
 }

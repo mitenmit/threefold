@@ -8,8 +8,7 @@ if (!defined('DS')) {
 }
 
 define('ROOT', dirname(__DIR__));
-define('APP', ROOT . DS . APP_DIR . DS);
 define('CONFIG', ROOT . DS . 'config' . DS);
-define('WWW', ROOT . DS . 'public' . DS);
-define('THEME', WWW . 'theme');
-define('PAGES', WWW . 'pages');
+define('PUBLIC_FOLDER', ROOT . DS . 'public' . DS);
+define('THEME', PUBLIC_FOLDER . 'theme');
+define('PAGES', PUBLIC_FOLDER . 'pages');

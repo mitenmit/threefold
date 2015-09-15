@@ -27,11 +27,11 @@ class Request
      */
     public function __construct($uri)
     {
-        $rawParams = explode("/", $uri);
+        $rawParams = explode("/", ltrim($uri, '/'));
         if (count($rawParams) > 1) {
             $this->parameters["pageName"] = array_pop($rawParams);
             $this->parameters["tree"] = implode('/', $rawParams) . '/';
-        } elseif (count($rawParams) === 1) {
+        } elseif ($rawParams[0] !== "") {
             $this->parameters["pageName"] = $rawParams[0];
         } else {
             $this->parameters["pageName"] = "home";

@@ -14,8 +14,8 @@ class Threefold
     /**
      * Dispatch function
      *
-     * @param Request $request Should be created from GET
-     * @param Array $configuration Should be injected by bootstrapping process
+     * @param Request $request, Array $configuration
+     * @since 2.0.0
      */
     public static function dispatch(Request $request, Array $configuration)
     {
@@ -25,9 +25,9 @@ class Threefold
         try {
             static::renderTemplate(["head", "body", "footer"], $page);
         } catch (TemplateException $e) {
-            print "<strong>TemplateException:</strong><h3>{$e->getMessage()}</h3>";
+            print "<strong>TemplateException:</strong><code>{$e->getMessage()}</code>";
         } catch (\Exception $e) {
-            print "<strong>Exception:</strong><h3>{$e->getMessage}</h3>";
+            print "<strong>Exception:</strong><code>{$e}</code>";
         }
         ob_end_flush();
     }
@@ -35,25 +35,30 @@ class Threefold
     /**
      * Render parts
      *
-     * @param Array $parts, Page $page, Array $configuration
+     * @param Array $parts, Page $page
      * @since 2.0.0
      */
     private function renderTemplate(Array $parts, Page $page)
     {
+        $loader = new \Twig_Loader_Filesystem([THEME, PAGES]);
+        $twig = new \Twig_Environment($loader);
+        $ext = ".html";
+
         foreach ($parts as $part) {
             if ($part === "body") {
-                $part = $page->slug;
-                $folder = PAGES;
+                $path = $page->tree . DS . $page->slug;
+                $baseFolder = PAGES;
             } else {
-                $folder = THEME;
+                $path = $part;
+                $baseFolder = THEME;
             }
-            if (file_exists($pathToTemplatePart = $folder . DS . $part . ".html")) {
-                $output .= include($pathToTemplatePart);
+            if (file_exists($baseFolder . DS . $path . $ext)) {
+                echo $twig->render($path . $ext, $page->getMetadata());
+            } elseif ($part === "body") {
+                static::renderTemplate(["404"], $page);
             } else {
-                throw new TemplateException("Warning: no template file found for template part '"
-                                                . $part . "' at ".$pathToTemplatePart."!");
+                throw new TemplateException("Warning: no template file found for template part '" . $part . "!");
             }
         }
-        echo($output);
     }
 }

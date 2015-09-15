@@ -7,9 +7,9 @@
     <meta name="author" content="<?=$page->author?>"/>
     <meta name="description" content="<?=$page->description?>" />
 
-    <title><?=$page->title?> :: <?=$page->standardTitle?></title>
+    <title>{{ title }} :: {{ standardTitle }}</title>
 
-   	<link href="public/theme/css/style.css" rel="stylesheet">
+   	<link href="/public/theme/css/style.css" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -18,27 +18,15 @@
   <body>
     <div id="menu">
       <div class="container">
-        <h1 class="site-title" onclick="window.location.href='./'">Threefold</h1>
+        <h1 class="site-title" onclick="window.location.href='/'">Threefold</h1>
         <ul class="menu-items">
-          <li><a id="home-nav" href="./">Home</a></li>
+          <li><a id="home-nav" href="/">Home</a></li>
           <li><a id="my_beautiful_page-nav" href="my_beautiful_page">A page</a></li>
         </ul>
         <script>
-          /*
-          Simple script to display which page
-          we're currently on.
-
-          Usage:
-          Give each menu item the id #name_of_page-nav.
-          You can then add a definition for .current-page
-          in your CSS.
-
-          Example: a page named watermelon.html should
-          have a corresponding menu item with the id
-          #watermelon-nav.
-          */
-          var currentItem = document.getElementById("<?=$page->slug?>-nav");
-          currentItem.className += " current-page";
+          var pageSlug = window.location.pathname.substr(1) || "home"
+          var currentItem = document.getElementById(pageSlug + "-nav")
+          currentItem.className += " current-page"
           </script>
       </div>
     </div>

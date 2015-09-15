@@ -9,7 +9,7 @@
  */
 return [
     /* The base title of your website */
-    "title" => "Threefold",
+    "standardTitle" => "Threefold",
 
     /* The main author, for search engine results */
     "author" => "Accommodavid",
