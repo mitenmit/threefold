@@ -1,41 +1,25 @@
 <?php
-/***************
- * THREEFOLD
- ***************/
+/**
+ *
+ *             88                                                  ad88              88           88
+ *      ,d     88                                                 d8"                88           88
+ *      88     88                                                 88                 88           88
+ *    MM88MMM  88,dPPYba,   8b,dPPYba,   ,adPPYba,   ,adPPYba,  MM88MMM  ,adPPYba,   88   ,adPPYb,88
+ *      88     88P'    "8a  88P'   "Y8  a8P_____88  a8P_____88    88    a8"     "8a  88  a8"    `Y88
+ *      88     88       88  88          8PP"""""""  8PP"""""""    88    8b       d8  88  8b       88
+ *      88,    88       88  88          "8b,   ,aa  "8b,   ,aa    88    "8a,   ,a8"  88  "8a,   ,d88
+ *      "Y888  88       88  88           `"Ybbd8"'   `"Ybbd8"'    88     `"YbbdP"'   88   `"8bbdP"Y8
+ *
+ * @package Threefold
+ * @since 2.0.0
+ */
 
-require __DIR__ . "/vendor/autoload.php";
-$configuration = require_once __DIR__ . "/config/config.php";
+$configuration = require_once __DIR__ . "/config/bootstrap.php";
 
-define( 'ABSPATH', dirname(__FILE__) . '/' );
+use Threefold\Threefold;
+use Threefold\Request;
 
-//Define the absolute remote path
-$siteURL = 'http';
-if ($_SERVER["HTTPS"] == "on") {
-	$siteURL .= "s";
-}
-$siteURL .= "://";
-if ($_SERVER["SERVER_PORT"] != "80") {
-    $siteURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"]."/".ROOT_FOLDER;
-} else {
-    $siteURL .= $_SERVER["SERVER_NAME"]."/".ROOT_FOLDER;
-}
-define('SITE_URL', $siteURL);
-
-//Retrieve current request
-$page = $_REQUEST['p'];
-$sub = $_REQUEST['s'];
-$ext = $_REQUEST['e'];
-
-//Default page is home.phtml
-if(!isset($page) || empty($page)) {
-	$page = 'home';
-}
-
-//Render the page
-try {
-	Threefold::load($page, $sub, $ext);
-} catch (TemplateException $e) {
-print "TemplateException: {$e->getMessage()}\n";
-} catch (\Exception $e) {
-	print "Exception: {$e->getMessage}\n";
-}
+Threefold::dispatch(
+    Request::createFromURI(),
+    $configuration
+);
