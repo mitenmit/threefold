@@ -25,12 +25,12 @@ class Page
      */
     public function __construct(Request $request, Array $configuration)
     {
-        $this->metadata["slug"] = $request->pageName;
-        $this->metadata["tree"] = $request->tree;
+        $this->slug = $request->pageName;
+        $this->tree = $request->tree;
         $this->metadata = array_merge($this->metadata, $configuration);
 
-        if (file_exists($jsonPath = ROOT . DS . PAGES . DS . $request->tree . DS . $this->slug . ".json")) {
-            $this->metadata = array_merge($this->metadata, json_decode(file_get_contents($jsonPath)));
+        if (file_exists($jsonPath = PAGES . DS . $this->tree . DS . $this->slug . ".json")) {
+            $this->metadata = array_merge($this->metadata, json_decode(file_get_contents($jsonPath), true));
         } else {
             switch ($configuration["capitalsPreference"]) {
                 case 'words':
