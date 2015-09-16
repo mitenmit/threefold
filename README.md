@@ -8,7 +8,7 @@ So you know how stupidly complicated it is to build really small websites, right
 Threefold is the most lightweight theme engine in the world and the fastest way to make small websites. Put your header and footer in _theme/_. Put the content of your pages in _pages/_. Threefold stitches them together for you. Done. Nothing to set up, no databases to configure.
 
 ### How do I install it?
-1. Download [this](https://accommodavid.sexy/threefold/download) and put it on your server
+1. Download [this](https://accommodavid.sexy/threefold/download/threefold.zip) and put it on your server
 
 Or do `composer create-project accommodavid\threefold` if you have Composer installed.
 
