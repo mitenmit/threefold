@@ -13,7 +13,7 @@ Threefold is the most lightweight theme engine in the world and the fastest way 
 Or do `composer create-project accommodavid\threefold` if you have Composer installed.
 
 ### Are there special features?
-Glad you asked. Threefold includes a built-in 404-page and a ton of small helpers to get you going quickly. Under the hood is Twig, which allows you to put things in your pages like `{{ title }}` and have them filled automatically. You can add custom metadata to your page with simple JSON and access it everywhere, like a custom header image for each page. There is support for subfolders, so you can group pages together without worrying about weird URLs.
+Glad you asked. Threefold includes a built-in 404-page and a ton of small helpers to get you going quickly. Under the hood is Twig, which allows you to put things in your pages like `{{ title }}` and have them filled automatically. You can add custom metadata to your page with simple JSON and access it everywhere, like a custom header image for each page. There is support for subfolders, so you can group pages together without worrying about weird URLs. Oh, and if you're on Mac or Linux, you can test Threefold locally by running `bin/threefold`.
 
 ### Do I need anything special to run Threefold?
 If your server supports PHP5.4 and mod_rewrite, no. For earlier PHP versions, you have to enable `short_open_tags`.
