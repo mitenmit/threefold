@@ -1,14 +1,13 @@
 <?php
+
+namespace Threefold;
+
 /**
- * Request
- * ------------
  * Object that contains the current request and is parseable by Threefold
  *
  * @package Threefold
  * @since 2.0.0
  */
-namespace Threefold;
-
 class Request
 {
     /**
@@ -19,10 +18,10 @@ class Request
     protected $parameters;
 
     /**
-     * Constructor
      * Create a new Request object
      *
-     * @param string $parameterString
+     * @param string $uri       The original uri, usually as created by the
+     *                          built-in factory method
      * @return Request
      */
     public function __construct($uri)
@@ -39,8 +38,8 @@ class Request
     }
 
     /**
-     * Magic get function
-     * Pulls parameter from array
+     * Magic get function, pulls
+     * parameter from array
      *
      * @param string $name
      * @return string
@@ -54,7 +53,8 @@ class Request
     }
 
     /**
-     *
+     * Factory method that creates a new instance
+     * from the superglobal REQUEST_URI
      *
      * @param string $name
      * @return string

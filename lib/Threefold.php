@@ -1,20 +1,20 @@
 <?php
-/**
-* Threefold
-* --------------
-* Main class that does the rendering and handles the request
-*
-* @package Threefold
-* @since 2.0.0
-*/
+
 namespace Threefold;
 
+/**
+ * Main class that does the rendering and handles the request
+ *
+ * @package Threefold
+ * @since 2.0.0
+ */
 class Threefold
 {
     /**
-     * Dispatch function
+     * Dispatches a response based on the current request
      *
-     * @param Request $request, Array $configuration
+     * @param Request $request
+     * @param Array $configuration
      * @since 2.0.0
      */
     public static function dispatch(Request $request, Array $configuration)
@@ -35,7 +35,10 @@ class Threefold
     /**
      * Render parts
      *
-     * @param Array $parts, Page $page
+     * @param Array $parts      This corresponds to whatever files are in public/theme,
+     *                          with the exception of body, which triggers rendering the
+     *                          main content. Threefold by default tries header, body, footer.
+     * @param Page $page        The current page.
      * @since 2.0.0
      */
     private function renderTemplate(Array $parts, Page $page)

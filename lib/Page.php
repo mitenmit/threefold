@@ -1,12 +1,10 @@
 <?php
-/**
- * Page
- * ------
- * Object that contains all the variables of the current page
- */
 
 namespace Threefold;
 
+/**
+ * Object that contains all the variables of the current page
+ */
 class Page
 {
     /**
@@ -17,10 +15,10 @@ class Page
     private $metadata;
 
     /**
-     * Constructor
      * Create a new Page object
      *
      * @param Request $request
+     * @param Array $configuration
      * @return Page
      */
     public function __construct(Request $request, Array $configuration)
@@ -47,7 +45,6 @@ class Page
     }
 
     /**
-     * getMetadata
      * Returns all metadata
      *
      * @return array
@@ -58,8 +55,8 @@ class Page
     }
 
     /**
-     * Magic get function
-     * Pulls metadata from array
+     * Magic get function, pulls
+     * metadata from array
      *
      * @param string $name
      * @return string
@@ -73,10 +70,11 @@ class Page
     }
 
     /**
-     * Magic set function
-     * Stores metadata in array
+     * Magic set function, stores
+     * metadata in array
      *
-     * @param string $name, string $value
+     * @param string $name
+     * @param string $value
      * @return bool
      */
     public function __set($name, $value)
