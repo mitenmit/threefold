@@ -17,3 +17,6 @@ Glad you asked. Threefold includes a built-in 404-page and a ton of small helper
 
 ### Do I need anything special to run Threefold?
 If your server supports PHP5.4 and mod_rewrite, no. For earlier PHP versions, you have to enable `short_open_tags`.
+
+### Documentation
+The docs are [here](http://accommodavid.github.io/threefold)
