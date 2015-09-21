@@ -1,5 +1,5 @@
 body {
-	font: 13px/1.5 Verdana, 'Geneva CE', lucida, sans-serif;
+	font: 13px/1.5 Futura, Helvetica, Arial, sans-serif;
 	margin: 0;
 	padding: 0;
 	background: #ffffff;
@@ -7,15 +7,15 @@ body {
 }
 
 h1, h2, h3, h4, caption {
-	font-family: 'Trebuchet MS', 'Geneva CE', lucida, sans-serif;
 	color: #053368;
 }
 
 h1 {
 	color: #1e5eb6;
 	font-size: 230%;
-	font-weight: normal;
+	font-weight: bolder;
 	margin: .3em 0;
+  letter-spacing: 1pt;
 }
 
 h2 {
@@ -26,8 +26,9 @@ h2 {
 }
 
 h3 {
-	font-size: 1.6em;
-	font-weight: normal;
+	font-size: 0.8em;
+	font-weight: bold;
+  text-transform: lowercase;
 	margin-bottom: 2px;
 }
 
@@ -61,7 +62,7 @@ hr {
 }
 
 a {
-	color: #006aeb;
+	color: ;
 	padding: 3px 1px;
 	text-decoration: none;
 }
@@ -71,7 +72,7 @@ h1 a {
 }
 
 a:hover, a:active, a:focus, a:hover b, a:hover var {
-	background-color: #006aeb;
+	background-color: #155079;
 	color: #ffffff !important;
 }
 
@@ -109,9 +110,10 @@ code a b {
 /* Left side */
 #left {
 	overflow: auto;
-	width: 270px;
+	width: 220px;
 	height: 100%;
 	position: fixed;
+  background: #efefef;
 }
 
 /* Menu */
@@ -150,7 +152,7 @@ code a b {
 }
 
 #menu .active > a:hover, #menu .active > a:active, #menu .active > a:focus {
-	background-color: #006aeb;
+	background-color: #222;
 }
 
 #menu #groups span {
@@ -183,7 +185,7 @@ code a b {
 /* Right side */
 #right {
 	overflow: auto;
-	margin-left: 275px;
+	margin-left: 225px;
 	height: 100%;
 	position: relative;
 	left: 0;
@@ -243,7 +245,7 @@ code a b {
 }
 
 .ac_over {
-	background-color: #006aeb;
+	background-color: ;
 	color: #ffffff;
 }
 
@@ -275,12 +277,12 @@ code a b {
 	float: left;
 	margin: 2px;
 	padding: 0 3px;
-	font-family: Verdana, 'Geneva CE', lucida, sans-serif;
+  text-transform: lowercase;
 	color: #808080;
 }
 
 #navigation ul li.active {
-	background-color: #053368;
+	background-color: #0010a0;
 	color: #ffffff;
 	font-weight: bold;
 }
@@ -297,7 +299,7 @@ code a b {
 }
 
 #navigation ul li a:hover span, #navigation ul li a:active span, #navigation ul li a:focus span {
-	background-color: #006aeb;
+	background-color: #001090;
 }
 
 /* Content */
@@ -440,7 +442,7 @@ td.attributes {
 	line-height: 1;
 	font-size: 85%;
 	margin: 0;
-	color: #006aeb !important;
+	color:  !important;
 }
 
 .list {
@@ -457,8 +459,8 @@ div.invalid {
 	position: fixed;
 	height: 100%;
 	width: 5px;
-	left: 270px;
-	background: #1e5eb6 url('resize.png') left center no-repeat;
+	left: 220px;
+	background: #dedede url('resize.png') left center no-repeat;
 	cursor: e-resize;
 }
 
@@ -476,7 +478,6 @@ div.invalid {
 	padding: 20px 0 0;
 	margin: 3em 0 0;
 	height: 90px;
-	background: #ffffff url('footer.png') no-repeat center top;
 }
 
 /* Tree */
