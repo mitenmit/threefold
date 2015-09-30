@@ -1,6 +1,6 @@
 {
-    "name": "accommodavid/threefold",
-    "description": "The most barebones theme engine in the universe",
+    "name": "polyfold/threefold",
+    "description": "The most lightweight theme engine in the universe",
     "license": "MIT",
     "keywords": ["theme", "theme engine"],
     "authors": [
