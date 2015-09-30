@@ -1,8 +1,8 @@
 {
     "name": "polyfold/threefold",
-    "description": "The most lightweight theme engine in the universe",
+    "description": "A theme engine in less than 80 lines of code",
     "license": "MIT",
-    "keywords": ["theme", "theme engine"],
+    "keywords": ["theme", "theme engine", "minimal"],
     "authors": [
         {
             "name": "Accommodavid",
@@ -11,10 +11,6 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": ">=5.4.0",
-        "twig/twig": "~1.0"
-    },
-    "autoload": {
-        "psr-4": {"Threefold\\": "lib/"}
+        "php": ">=5.4.0"
     }
 }
