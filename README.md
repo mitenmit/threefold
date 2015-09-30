@@ -22,17 +22,22 @@ If your server supports PHP5.4 and mod_rewrite or something equivalent, no.
 ### What tags are there? Give me examples.
 Everything you put in `config.json` becomes a global tag. By default these are:
 
-`{{ standardTitle }}`   The base title of your website
-`{{ author }}`          The author of your website (for search results)
+- `{{ standardTitle }}`
+  The base title of your website
+- `{{ author }}`
+  The author of your website (for search results)
 
 Per page Threefold also generates the following tags:
 
-`{{ title }}`           The title of this page (e.g. 'Apple Tree')
-`{{ slug }}`            An URL-safe title of the page (e.g. 'apple_tree')
-`{{ tree }}`            The structure of subfolders that your page is in (e.g. 'nature/trees/fruitbearing/')
+- `{{ title }}`
+  The title of this page (e.g. 'Apple Tree')
+- `{{ slug }}`
+  An URL-safe title of the page (e.g. 'apple_tree')
+- `{{ tree }}`
+  The structure of subfolders that your page is in (e.g. 'nature/trees/fruitbearing/')
 
 You can also add your own tags per page. Create a JSON file with the same name as
-your page. (So for `nice_page.html` you should create `nice_page.json`.) Then you
+your page. (So for `nice_page.html` you should create `nice_page.json`) Then you
 can create tags like so:
 ```
 {
