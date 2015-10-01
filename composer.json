@@ -1,6 +1,6 @@
 {
     "name": "polyfold/threefold",
-    "description": "A theme engine in less than 80 lines of code",
+    "description": "A theme engine in less than 70 lines of code",
     "license": "MIT",
     "keywords": ["theme", "theme engine", "minimal"],
     "authors": [
