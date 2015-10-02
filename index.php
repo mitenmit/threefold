@@ -19,8 +19,10 @@ if (count($rawParams) > 1) {
     $pageParameters['tree'] = implode('/', $rawParams) . '/';
 } elseif ($rawParams[0] !== '') {
     $pageParameters['slug'] = $rawParams[0];
+    $pageParameters['tree'] = '';
 } else {
     $pageParameters['slug'] = 'home';
+    $pageParameters['tree'] = '';
 }
 
 // Set metadata
@@ -56,7 +58,8 @@ try {
         }
         // Compile template
         $html = preg_replace_callback('/\{\{\s?([a-zA-Z]+)\s?\}\}/', function($match) use ($pageParameters) {
-            return $pageParameters[trim($match[0], '{{ }}')];
+            $ppIndex = trim($match[0], '{{ }}');
+            return isset($pageParameters[$ppIndex]) ? $pageParameters[$ppIndex] : '';
         }, file_get_contents($path));
         print($html);
     }
